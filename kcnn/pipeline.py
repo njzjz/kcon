@@ -274,7 +274,7 @@ def next_batch(dataset_name, for_training=True, batch_size=50, num_epochs=None,
 
     # Shuffle it if needed
     if shuffle:
-      min_queue_examples = int(dataset_size * 0.4) + 3 * batch_size
+      min_queue_examples = min(int(dataset_size * 0.4) + 3 * batch_size,5000)
       dataset = dataset.shuffle(buffer_size=min_queue_examples, seed=SEED)
 
     # Setup the batch
